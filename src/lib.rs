@@ -25,10 +25,17 @@ pub fn new(config: MTConfig, db_pool: Pool<Any>) -> Result<MTApp> {
 }
 
 impl MTApp {
-    pub async fn run(&self) -> Result<()> {
+    pub async fn run(self) -> Result<()> {
         info!("Starting MarathonTools ver. {}", env!("CARGO_PKG_VERSION"));
+        self.server.at("/").get((index);
+        self.server.listen("127.0.0.1:8080").await?;
         Ok(())
     }
+}
+
+
+async fn index(req: &mut tide::Request<ServerState>) -> tide::Result {
+    Ok("Hello World".into())
 }
 
 #[derive(Debug, Error)]
